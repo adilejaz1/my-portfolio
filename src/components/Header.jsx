@@ -22,7 +22,7 @@ const Header = () => {
           className="text-2xl font-bold text-gray-800 dark:text-white absolute left-6"
           whileHover={{ scale: 1.05 }}
         >
-          Portfolio
+         {/* //you can write your name here */}
         </motion.div>
         
         {/* Navigation perfectly centered */}
