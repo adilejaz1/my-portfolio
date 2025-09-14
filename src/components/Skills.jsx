@@ -8,15 +8,14 @@ const Skills = () => {
   })
 
   const skills = [
-    { name: 'React', level: 90 },
-    { name: 'JavaScript', level: 85 },
-    { name: 'Node.js', level: 80 },
-    { name: 'Flutter', level: 75 },
-    { name: 'CSS/Tailwind', level: 95 },
+    { name: 'React', level: 70 },
+    { name: 'Node.js', level: 70 },
+    { name: 'Express.js', level: 80 },
+    { name: 'CSS/Tailwind', level: 85 },
     { name: 'MongoDB', level: 70 },
-    { name: 'Bubble.io', level: 65 },
+    { name: 'Kotlin', level: 70 },
     { name: 'Data science', level: 60 },
-    { name: 'SEO', level: 80 },
+    { name: 'Python', level: 70 },
   ]
 
   const containerVariants = {
@@ -81,7 +80,7 @@ const Skills = () => {
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
         >
-          {['React', 'Node', 'MongoDB', 'Bubble.io', 'React Native', 'Git', 'Figma', 'Flutter','Python'].map((tech, index) => (
+          {['React', 'Node', 'MongoDB', 'Express', 'CSS/Tailwind', 'Git', 'Data Science', 'Kotlin','Python'].map((tech, index) => (
             <motion.div 
               key={index}
               className="bg-white dark:bg-gray-700 p-4 rounded-xl shadow-md flex items-center justify-center flex-col"

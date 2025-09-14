@@ -61,7 +61,7 @@ const About = () => {
               Crafting Digital Experiences
             </h3>
             <p className="text-gray-600 dark:text-gray-300 mb-6">
-              I'm a passionate full-stack developer with over 5 years of experience creating
+              I'm a passionate MERN stack developer with over 2 years of experience creating
               digital solutions that make a difference. I specialize in React, Node.js, and
               modern web technologies.
             </p>
@@ -74,7 +74,7 @@ const About = () => {
               className="grid grid-cols-2 gap-4"
               variants={containerVariants}
             >
-              {['Web Development', 'UI/UX Design', 'DevOps', 'MERN Stack', 'Ai Engineer'].map((skill, index) => (
+              {['Web Development', 'App Development', 'MERN Stack','SQA'].map((skill, index) => (
                 <motion.div
                   key={index}
                   className="flex items-center space-x-2"

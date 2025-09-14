@@ -13,8 +13,8 @@ const Footer = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <h3 className="text-2xl font-bold">John Doe</h3>
-            <p className="text-gray-400">Full Stack Developer</p>
+            <h3 className="text-2xl font-bold">Adil Ejaz</h3>
+            <p className="text-gray-400">MERN stack Developer</p>
           </motion.div>
           
           <motion.div 
@@ -44,7 +44,7 @@ const Footer = () => {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <p>© {currentYear} John Doe. All rights reserved.</p>
+          <p>© {currentYear} Adil Ejaz. All rights reserved.</p>
         </motion.div>
       </div>
     </footer>

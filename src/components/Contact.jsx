@@ -1,12 +1,10 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { useState } from 'react'
+import { send } from '@emailjs/browser'
 
 const Contact = () => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  })
+  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 })
   
   const [formData, setFormData] = useState({
     name: '',
@@ -15,34 +13,29 @@ const Contact = () => {
   })
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
+    setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // Handle form submission here
-    console.log(formData)
-    alert('Message sent! (This is a demo)')
-    setFormData({ name: '', email: '', message: '' })
+
+    const serviceID = 'service_cifh9kh'
+    const templateID = 'template_bqevxy9'
+    const userID = 'VScS5LuQH7DcNGdzJ'
+
+    send(serviceID, templateID, formData, userID)
+      .then(() => {
+        alert('Message sent successfully!')
+        setFormData({ name: '', email: '', message: '' })
+      })
+      .catch((err) => {
+        console.error('Failed to send message:', err)
+        alert('Failed to send message. Please try again!')
+      })
   }
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
-  }
+  const containerVariants = { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.2 } } }
+  const itemVariants = { hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }
 
   return (
     <section id="contact" className="py-20 bg-white dark:bg-gray-900">
@@ -71,9 +64,9 @@ const Contact = () => {
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
         >
+          {/* Contact Info */}
           <motion.div variants={itemVariants}>
             <h3 className="text-2xl font-semibold text-gray-800 dark:text-white mb-6">Contact Information</h3>
-            
             <div className="space-y-6">
               <div className="flex items-start space-x-4">
                 <div className="w-12 h-12 bg-indigo-100 dark:bg-indigo-900 rounded-full flex items-center justify-center flex-shrink-0">
@@ -86,7 +79,7 @@ const Contact = () => {
                   <p className="text-gray-600 dark:text-gray-300">+92 335 6471360</p>
                 </div>
               </div>
-              
+
               <div className="flex items-start space-x-4">
                 <div className="w-12 h-12 bg-indigo-100 dark:bg-indigo-900 rounded-full flex items-center justify-center flex-shrink-0">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-indigo-600 dark:text-indigo-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -98,22 +91,10 @@ const Contact = () => {
                   <p className="text-gray-600 dark:text-gray-300">adilejaz184@gmail.com</p>
                 </div>
               </div>
-              
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-indigo-100 dark:bg-indigo-900 rounded-full flex items-center justify-center flex-shrink-0">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-indigo-600 dark:text-indigo-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                </div>
-                <div>
-                  <h4 className="text-lg font-medium text-gray-800 dark:text-white">Location</h4>
-                  <p className="text-gray-600 dark:text-gray-300">Karachi sindh, Pakistan</p>
-                </div>
-              </div>
             </div>
           </motion.div>
-          
+
+          {/* Contact Form */}
           <motion.div variants={itemVariants}>
             <h3 className="text-2xl font-semibold text-gray-800 dark:text-white mb-6">Send Me a Message</h3>
             

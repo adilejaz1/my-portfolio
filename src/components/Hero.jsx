@@ -32,7 +32,7 @@ const Hero = () => {
             Hi, I'm <span className="text-indigo-600 dark:text-indigo-400">Adil Ejaz</span>
           </h1>
           <h2 className="text-2xl md:text-3xl text-gray-600 dark:text-gray-300 mb-6">
-            Full Stack Developer
+            MERN Stack Developer
           </h2>
           <p className="text-gray-500 dark:text-gray-400 mb-8 max-w-md">
             I create immersive digital experiences with modern technologies and innovative design.
